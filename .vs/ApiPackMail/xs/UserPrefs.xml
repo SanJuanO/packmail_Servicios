@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{68BCDBF8-3682-4D5A-A06E-79260A1A9A9C}|Default">
+  <MonoDevelop.Ide.ItemProperties.ApiPackMail PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ApiPackMail/Models/Database/ConnectDB.cs">
+    <Files>
+      <File FileName="ApiPackMail/Controllers/UsuariosController.cs" Line="101" Column="1" />
+      <File FileName="../../Desktop/servicios/Controllers/Usuarios/UsuariosLoginController.cs" />
+      <File FileName="ApiPackMail/Models/Usuarios.cs" />
+      <File FileName="ApiPackMail/Models/Database/ConnectDB.cs" Line="48" Column="1" />
+      <File FileName="ApiPackMail/Models/UserEntity.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ApiPackMail" expanded="True">
+            <Node name="ApiPackMail" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Database" expanded="True">
+                  <Node name="ConnectDB.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/oscarsanjuan/Projects/ApiPackMail/ApiPackMail/Models/Database/ConnectDB.cs" relfile="ApiPackMail/Models/Database/ConnectDB.cs" line="453" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
