@@ -9,6 +9,8 @@ using System.Configuration;
 using System.Data.OleDb;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
+using ApiPackMail.Models.Helpers;
+using Microsoft.Extensions.Options;
 
 namespace ConnectDB
 {
@@ -21,13 +23,20 @@ namespace ConnectDB
         public DataTable dt;
         public DataSet ds;
         public string errorMsg = string.Empty;
+        private AppSettings _settings;
 
-        public database()
+        public database(IOptions<AppSettings> settings)
         {
+            _settings = settings.Value;
             connect = new MySqlConnection();
             try
             {
-                connection = "Server=localhost;Database=packmail;Uid=packmail;password=packmail;";
+                if (_settings.debug) { 
+                    connection = _settings.Connection_dev;
+                }
+                else {
+                    connection = _settings.Connection_prod;
+                }
             }
             catch
             {
