@@ -1,4 +1,6 @@
-﻿using ConnectDB;
+﻿using ApiPackMail.Models.Helpers;
+using ConnectDB;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +21,15 @@ namespace ApiPackMail.Models
         public int activo { get; set; }
         public DateTime fechar { get; set; }
         public DateTime fecham { get; set; }
-        public int borrado { get; set; }
+        public bool borrado { get; set; }
         public long iduser { get; set; }
 
         private database db;
         public string ERROR { get; set; }
 
-        public Mensajeros()
+        public Mensajeros(IOptions<AppSettings> settings)
         {
-            db = new database();
+            db = new database(settings);
         }
 
         public bool getByUsuario()
@@ -51,8 +53,11 @@ namespace ApiPackMail.Models
                     foto = res.Get("foto");
                     activo = res.GetInt("activo");
                     fechar = res.GetDateTime("fechar");
-                    fecham = res.GetDateTime("fecham");
-                    borrado = res.GetInt("borrodado");
+                    if (!string.IsNullOrEmpty(res.Get("fecham")))
+                    {
+                        fecham = res.GetDateTime("fecham");
+                    }
+                    borrado = res.GetBool("borrado");
                     iduser = res.GetInt("iduser");
 
                     return true;

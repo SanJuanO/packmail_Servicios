@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiPackMail.Models;
+using ApiPackMail.Models.Helpers;
 using BenchmarkDotNet.Reports;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace ApiPackMail.Controllers
 {
@@ -13,6 +15,12 @@ namespace ApiPackMail.Controllers
     [ApiController]
     public class MensajerosController : ControllerBase
     {
+        private readonly IOptions<AppSettings> _settings;
+
+        public MensajerosController(IOptions<AppSettings> settings)
+        {
+            _settings = settings;
+        }
 
         ///<Summary>
         ///Solo nececita usuario,password
@@ -28,7 +36,7 @@ namespace ApiPackMail.Controllers
 
             try
             {
-                Mensajeros aux = new Mensajeros();
+                Mensajeros aux = new Mensajeros(_settings);
                 aux.password = usuariom.password;
                 if (usuariom.getByUsuario())
                 {
